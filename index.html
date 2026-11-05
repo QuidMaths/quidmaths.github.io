@@ -131,7 +131,7 @@
 <footer>Quid Maths · UK money spreadsheets · Digital downloads, nothing is posted · Prices in GBP</footer>
 </div>
 <script>
-var LINKS = {'taxpot': 'https://buy.stripe.com/dRm3cv0zP8f1dgggsE4Ni05', 'savings': 'https://buy.stripe.com/28E28r2HXfHtekk2BO4Ni00', 'xmas': 'https://buy.stripe.com/6oU4gzeqF1QDb880tG4Ni01', 'mortgage': 'https://buy.stripe.com/dRm14ndmB7aX6RS1xK4Ni02', 'debt': 'https://buy.stripe.com/bJeeVdbetan93FG1xK4Ni04', 'bundle': 'https://buy.stripe.com/3cI4gzaap3YL3FG6S44Ni03', 'bills': '', 'house': '', 'wedding': ''};
+var LINKS = {'taxpot': 'https://buy.stripe.com/dRm3cv0zP8f1dgggsE4Ni05', 'savings': 'https://buy.stripe.com/28E28r2HXfHtekk2BO4Ni00', 'xmas': 'https://buy.stripe.com/6oU4gzeqF1QDb880tG4Ni01', 'mortgage': 'https://buy.stripe.com/dRm14ndmB7aX6RS1xK4Ni02', 'debt': 'https://buy.stripe.com/bJeeVdbetan93FG1xK4Ni04', 'bundle': 'https://buy.stripe.com/3cI4gzaap3YL3FG6S44Ni03', 'bills': 'https://buy.stripe.com/5kQ9ATfuJ3YL6RS1xK4Ni06', 'house': 'https://buy.stripe.com/6oUbJ1dmB1QD5NOa4g4Ni07', 'wedding': 'https://buy.stripe.com/9B67sL0zP2UH9003FS4Ni08'};
 document.querySelectorAll("a[data-buy]").forEach(function (a) {
   var link = LINKS[a.getAttribute("data-buy")] || "";
   if (/^https:\/\/buy\.stripe\.com\/(?!test_)/.test(link)) { a.href = link; }
