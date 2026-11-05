@@ -79,11 +79,38 @@
         <div class="row"><div class="price">£4.99<small>UK Christmas Budget &amp; Gift Planner 2026</small></div><span class="more-link">See details →</span></div>
       </div>
     </a>
+    <a class="card" href="bills-planner/">
+      <img src="img/bills-1-cover.png" alt="UK Bills &amp; Sinking Funds Planner">
+      <div class="body">
+        <span class="tag hot">Start the year sorted</span>
+        <h3>Which bills are about to catch you out?</h3>
+        <p>Car insurance, car tax, MOT, TV licence, holidays and Christmas, turned into one monthly amount to put aside.</p>
+        <div class="row"><div class="price">£4.99<small>UK Bills &amp; Sinking Funds Planner</small></div><span class="more-link">See details →</span></div>
+      </div>
+    </a>
+    <a class="card" href="house-deposit/">
+      <img src="img/house-1-cover.png" alt="UK House Deposit &amp; Lifetime ISA Planner">
+      <div class="body">
+        <span class="tag">25% Lifetime ISA bonus built in</span>
+        <h3>When will you have your house deposit?</h3>
+        <p>Your deposit date, with the 25% Lifetime ISA bonus and first-time buyer stamp duty worked out.</p>
+        <div class="row"><div class="price">£5.99<small>UK House Deposit &amp; Lifetime ISA Planner</small></div><span class="more-link">See details →</span></div>
+      </div>
+    </a>
+    <a class="card" href="wedding-budget/">
+      <img src="img/wedding-1-cover.png" alt="UK Wedding Budget Planner">
+      <div class="body">
+        <span class="tag">Every deposit and due date</span>
+        <h3>Where is your wedding budget really going?</h3>
+        <p>Every supplier, quote, deposit and balance date in one place, with cost per guest and what&#x27;s still to pay.</p>
+        <div class="row"><div class="price">£6.99<small>UK Wedding Budget Planner</small></div><span class="more-link">See details →</span></div>
+      </div>
+    </a>
     <a class="card bundle-card" href="bundle/">
       <div class="body">
         <span class="tag">Best value</span>
         <h3>All five spreadsheets</h3>
-        <p>Tax pot, debt payoff, mortgage overpayment, savings and Christmas. Every number on this page for half the price of buying them separately.</p>
+        <p>Tax pot, debt payoff, mortgage overpayment, savings and Christmas. Five planners for half the price of buying them separately.</p>
         <div class="row"><div class="price"><s>£29.95</s>£14.99<small>Save £14.96</small></div><span class="more-link">See the bundle →</span></div>
       </div>
     </a>
@@ -104,7 +131,7 @@
 <footer>Quid Maths · UK money spreadsheets · Digital downloads, nothing is posted · Prices in GBP</footer>
 </div>
 <script>
-var LINKS = {'taxpot': 'https://buy.stripe.com/dRm3cv0zP8f1dgggsE4Ni05', 'savings': 'https://buy.stripe.com/28E28r2HXfHtekk2BO4Ni00', 'xmas': 'https://buy.stripe.com/6oU4gzeqF1QDb880tG4Ni01', 'mortgage': 'https://buy.stripe.com/dRm14ndmB7aX6RS1xK4Ni02', 'debt': 'https://buy.stripe.com/bJeeVdbetan93FG1xK4Ni04', 'bundle': 'https://buy.stripe.com/3cI4gzaap3YL3FG6S44Ni03'};
+var LINKS = {'taxpot': 'https://buy.stripe.com/dRm3cv0zP8f1dgggsE4Ni05', 'savings': 'https://buy.stripe.com/28E28r2HXfHtekk2BO4Ni00', 'xmas': 'https://buy.stripe.com/6oU4gzeqF1QDb880tG4Ni01', 'mortgage': 'https://buy.stripe.com/dRm14ndmB7aX6RS1xK4Ni02', 'debt': 'https://buy.stripe.com/bJeeVdbetan93FG1xK4Ni04', 'bundle': 'https://buy.stripe.com/3cI4gzaap3YL3FG6S44Ni03', 'bills': '', 'house': '', 'wedding': ''};
 document.querySelectorAll("a[data-buy]").forEach(function (a) {
   var link = LINKS[a.getAttribute("data-buy")] || "";
   if (/^https:\/\/buy\.stripe\.com\/(?!test_)/.test(link)) { a.href = link; }

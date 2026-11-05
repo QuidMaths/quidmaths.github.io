@@ -1,7 +1,10 @@
 User-agent: *
 Disallow: /dl-36beb95ffe71/
+Disallow: /dl-3f1a63c5a856/
 Disallow: /dl-550c834e2690/
 Disallow: /dl-7423fe6b62ee/
 Disallow: /dl-7b13da4b27b5/
+Disallow: /dl-856d00ce5597/
+Disallow: /dl-8e0a6357e1be/
 Disallow: /dl-96c57a55a2ed/
 Disallow: /dl-f5954ef06dde/
