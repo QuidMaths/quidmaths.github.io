@@ -221,12 +221,12 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--ink2);fo
 <script>
 /* Live Stripe payment links go here. Anything that isn't a buy.stripe.com link shows "Coming soon". */
 var LINKS = {
-  taxpot: "",
-  savings: "",
-  xmas: "",
-  mortgage: "",
-  debt: "",
-  bundle: ""
+  taxpot: "https://buy.stripe.com/dRm3cv0zP8f1dgggsE4Ni05",
+  savings: "https://buy.stripe.com/28E28r2HXfHtekk2BO4Ni00",
+  xmas: "https://buy.stripe.com/6oU4gzeqF1QDb880tG4Ni01",
+  mortgage: "https://buy.stripe.com/dRm14ndmB7aX6RS1xK4Ni02",
+  debt: "https://buy.stripe.com/bJeeVdbetan93FG1xK4Ni04",
+  bundle: "https://buy.stripe.com/3cI4gzaap3YL3FG6S44Ni03"
 };
 document.querySelectorAll("a.btn[data-buy]").forEach(function (a) {
   var link = LINKS[a.getAttribute("data-buy")] || "";
