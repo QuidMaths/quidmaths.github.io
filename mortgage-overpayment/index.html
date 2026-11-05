@@ -9,6 +9,11 @@
 <meta property="og:description" content="See exactly how many years and how much interest an extra monthly payment or a lump sum would save.">
 <meta property="og:image" content="https://quidmaths.github.io/img/mortgage-1-cover.png">
 <link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://buy.stripe.com">
+<link rel="preconnect" href="https://checkout.stripe.com">
+<link rel="preconnect" href="https://js.stripe.com">
+<link rel="preconnect" href="https://m.stripe.network">
+<link rel="dns-prefetch" href="https://q.stripe.com">
 </head>
 <body>
 <div class="wrap">
@@ -25,7 +30,7 @@
       <h1 style="font-size:clamp(28px,3.4vw,38px);margin:0">What would overpaying your mortgage save?</h1>
       <p class="small">UK Mortgage Overpayment Planner</p>
       <div class="price">£3.40<small>One-off payment · instant download</small></div>
-      <a class="btn big" data-buy="mortgage" href="#">Buy now</a>
+      <a class="btn big" data-buy="mortgage" href="https://buy.stripe.com/cNi8wPbet0Mzb88dgs4Ni0b">Buy now</a>
       <p class="small">Secure checkout by Stripe: card, Apple Pay or Google Pay.</p>
       <ul><li>Your normal monthly payment, worked out</li><li>Mortgage-free date with and without overpaying</li><li>Years and interest saved, plus an optional one-off lump sum</li><li>Warns you if you&#x27;d go over your 10% overpayment allowance</li><li>Month-by-month balance, both ways, with a chart</li></ul>
       <p class="small">Works in Excel and Google Sheets.</p>
@@ -50,7 +55,7 @@
     <h2 class="section">Questions</h2>
     <h3>Will overpaying cost me a fee?</h3><p>Most UK fixed-rate deals let you overpay up to 10% of the balance a year without an early repayment charge. The planner warns you if your plan goes over. Check your own mortgage offer for the exact rule.</p><h3>Should I overpay or save?</h3><p>Many people keep an emergency fund and clear more expensive debt first. The planner shows what overpaying saves, so you can compare it with what your savings earn.</p><h3>How do I get my spreadsheet?</h3><p>Straight after paying you&#x27;re taken to your download page, and Stripe emails you a receipt. Save the file, then open it in Excel or upload it to Google Sheets (free).</p><h3>Can I pay with Apple Pay or Google Pay?</h3><p>Yes. Checkout is handled securely by Stripe and accepts cards, Apple Pay and Google Pay.</p><h3>Do I need to be good with spreadsheets?</h3><p>No. It opens on a &quot;Start Here&quot; tab. You type in the yellow cells and everything else works itself out. There are example rows so you can see what goes where.</p><h3>Will it work on my phone?</h3><p>Yes, in the free Google Sheets or Excel apps, though it&#x27;s easiest to set up on a computer.</p><h3>Is this financial or tax advice?</h3><p>No. It&#x27;s a calculator to help you plan, using published UK rates. Check GOV.UK or an adviser for your own situation.</p><h3>Something not working?</h3><p>Reply to your Stripe receipt email and you&#x27;ll get a reply.</p>
   </section>
-  <div style="text-align:center;padding:10px 0 30px"><a class="btn big" data-buy="mortgage" href="#">Buy now · £3.40</a></div>
+  <div style="text-align:center;padding:10px 0 30px"><a class="btn big" data-buy="mortgage" href="https://buy.stripe.com/cNi8wPbet0Mzb88dgs4Ni0b">Buy now · £3.40</a></div>
 </main>
 <footer>Quid Maths · UK money spreadsheets · Digital downloads, nothing is posted · Prices in GBP</footer>
 </div>
@@ -58,7 +63,12 @@
 var LINKS = {'debt': 'https://buy.stripe.com/3cI14nfuJfHt3FG4JW4Ni09', 'taxpot': 'https://buy.stripe.com/bJe4gz4Q5brd900foA4Ni0a', 'mortgage': 'https://buy.stripe.com/cNi8wPbet0Mzb88dgs4Ni0b', 'savings': 'https://buy.stripe.com/9B67sL2HX2UH3FGekw4Ni0c', 'xmas': 'https://buy.stripe.com/eVq8wP2HXbrd5NOgsE4Ni0d', 'bills': 'https://buy.stripe.com/eVq28rbet52P4JKb8k4Ni0e', 'house': 'https://buy.stripe.com/3cI8wP0zPfHt3FG4JW4Ni0f', 'wedding': 'https://buy.stripe.com/00w14nbetfHt1xy6S44Ni0g'};
 document.querySelectorAll("a[data-buy]").forEach(function (a) {
   var link = LINKS[a.getAttribute("data-buy")] || "";
-  if (/^https:\/\/buy\.stripe\.com\/(?!test_)/.test(link)) { a.href = link; }
+  if (/^https:\/\/buy\.stripe\.com\/(?!test_)/.test(link)) {
+    a.href = link;
+    var label = a.textContent;
+    a.addEventListener("click", function () { a.classList.add("loading"); a.textContent = "Opening secure checkout…"; });
+    window.addEventListener("pageshow", function () { a.classList.remove("loading"); a.textContent = label; });
+  }
   else { a.textContent = "Coming soon"; a.classList.add("soon"); a.removeAttribute("href"); }
 });
 </script>

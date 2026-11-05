@@ -9,6 +9,11 @@
 <meta property="og:description" content="Spreadsheets that work out the money numbers UK people usually find out too late: your side-hustle tax bill, your debt-free date, what overpaying your mortgage saves, and what Christmas really costs.">
 <meta property="og:image" content="https://quidmaths.github.io/img/tax-pot-1-cover.png">
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://buy.stripe.com">
+<link rel="preconnect" href="https://checkout.stripe.com">
+<link rel="preconnect" href="https://js.stripe.com">
+<link rel="preconnect" href="https://m.stripe.network">
+<link rel="dns-prefetch" href="https://q.stripe.com">
 </head>
 <body>
 <div class="wrap">
@@ -126,7 +131,12 @@
 var LINKS = {'debt': 'https://buy.stripe.com/3cI14nfuJfHt3FG4JW4Ni09', 'taxpot': 'https://buy.stripe.com/bJe4gz4Q5brd900foA4Ni0a', 'mortgage': 'https://buy.stripe.com/cNi8wPbet0Mzb88dgs4Ni0b', 'savings': 'https://buy.stripe.com/9B67sL2HX2UH3FGekw4Ni0c', 'xmas': 'https://buy.stripe.com/eVq8wP2HXbrd5NOgsE4Ni0d', 'bills': 'https://buy.stripe.com/eVq28rbet52P4JKb8k4Ni0e', 'house': 'https://buy.stripe.com/3cI8wP0zPfHt3FG4JW4Ni0f', 'wedding': 'https://buy.stripe.com/00w14nbetfHt1xy6S44Ni0g'};
 document.querySelectorAll("a[data-buy]").forEach(function (a) {
   var link = LINKS[a.getAttribute("data-buy")] || "";
-  if (/^https:\/\/buy\.stripe\.com\/(?!test_)/.test(link)) { a.href = link; }
+  if (/^https:\/\/buy\.stripe\.com\/(?!test_)/.test(link)) {
+    a.href = link;
+    var label = a.textContent;
+    a.addEventListener("click", function () { a.classList.add("loading"); a.textContent = "Opening secure checkout…"; });
+    window.addEventListener("pageshow", function () { a.classList.remove("loading"); a.textContent = label; });
+  }
   else { a.textContent = "Coming soon"; a.classList.add("soon"); a.removeAttribute("href"); }
 });
 </script>

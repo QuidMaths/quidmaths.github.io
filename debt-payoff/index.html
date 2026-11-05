@@ -9,6 +9,11 @@
 <meta property="og:description" content="All your cards, loans and car finance in one plan, with the month you&#x27;ll be clear and which debt to pay first.">
 <meta property="og:image" content="https://quidmaths.github.io/img/debt-1-cover.png">
 <link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://buy.stripe.com">
+<link rel="preconnect" href="https://checkout.stripe.com">
+<link rel="preconnect" href="https://js.stripe.com">
+<link rel="preconnect" href="https://m.stripe.network">
+<link rel="dns-prefetch" href="https://q.stripe.com">
 </head>
 <body>
 <div class="wrap">
@@ -25,7 +30,7 @@
       <h1 style="font-size:clamp(28px,3.4vw,38px);margin:0">When will you actually be debt-free?</h1>
       <p class="small">UK Debt Payoff Planner</p>
       <div class="price">£3.40<small>One-off payment · instant download</small></div>
-      <a class="btn big" data-buy="debt" href="#">Buy now</a>
+      <a class="btn big" data-buy="debt" href="https://buy.stripe.com/3cI14nfuJfHt3FG4JW4Ni09">Buy now</a>
       <p class="small">Secure checkout by Stripe: card, Apple Pay or Google Pay.</p>
       <ul><li>Credit cards, 0% balance transfers, overdrafts, loans and car finance (up to 6 debts)</li><li>Avalanche (least interest) or snowball (quickest wins): switch and compare</li><li>Tells you which debt to pay first, and rolls each cleared minimum onto the next</li><li>Knows when each 0% deal ends and starts charging interest after</li><li>The month each debt is cleared, and the interest you&#x27;ll pay</li><li>Example: £10,400 of debt cleared in 19 months for £600 a month</li></ul>
       <p class="small">Works in Excel and Google Sheets.</p>
@@ -50,7 +55,7 @@
     <h2 class="section">Questions</h2>
     <h3>Avalanche or snowball, which is better?</h3><p>Avalanche pays the highest interest rate first and saves the most money. Snowball clears the smallest balance first, which gives quicker wins. The planner lets you try both and see the difference.</p><h3>What if I can only afford the minimums?</h3><p>It still shows your debt-free date and the interest you&#x27;ll pay. If debt is getting on top of you, StepChange (0800 138 1111) and MoneyHelper give free, confidential help.</p><h3>How do I get my spreadsheet?</h3><p>Straight after paying you&#x27;re taken to your download page, and Stripe emails you a receipt. Save the file, then open it in Excel or upload it to Google Sheets (free).</p><h3>Can I pay with Apple Pay or Google Pay?</h3><p>Yes. Checkout is handled securely by Stripe and accepts cards, Apple Pay and Google Pay.</p><h3>Do I need to be good with spreadsheets?</h3><p>No. It opens on a &quot;Start Here&quot; tab. You type in the yellow cells and everything else works itself out. There are example rows so you can see what goes where.</p><h3>Will it work on my phone?</h3><p>Yes, in the free Google Sheets or Excel apps, though it&#x27;s easiest to set up on a computer.</p><h3>Is this financial or tax advice?</h3><p>No. It&#x27;s a calculator to help you plan, using published UK rates. Check GOV.UK or an adviser for your own situation.</p><h3>Something not working?</h3><p>Reply to your Stripe receipt email and you&#x27;ll get a reply.</p>
   </section>
-  <div style="text-align:center;padding:10px 0 30px"><a class="btn big" data-buy="debt" href="#">Buy now · £3.40</a></div>
+  <div style="text-align:center;padding:10px 0 30px"><a class="btn big" data-buy="debt" href="https://buy.stripe.com/3cI14nfuJfHt3FG4JW4Ni09">Buy now · £3.40</a></div>
 </main>
 <footer>Quid Maths · UK money spreadsheets · Digital downloads, nothing is posted · Prices in GBP</footer>
 </div>
@@ -58,7 +63,12 @@
 var LINKS = {'debt': 'https://buy.stripe.com/3cI14nfuJfHt3FG4JW4Ni09', 'taxpot': 'https://buy.stripe.com/bJe4gz4Q5brd900foA4Ni0a', 'mortgage': 'https://buy.stripe.com/cNi8wPbet0Mzb88dgs4Ni0b', 'savings': 'https://buy.stripe.com/9B67sL2HX2UH3FGekw4Ni0c', 'xmas': 'https://buy.stripe.com/eVq8wP2HXbrd5NOgsE4Ni0d', 'bills': 'https://buy.stripe.com/eVq28rbet52P4JKb8k4Ni0e', 'house': 'https://buy.stripe.com/3cI8wP0zPfHt3FG4JW4Ni0f', 'wedding': 'https://buy.stripe.com/00w14nbetfHt1xy6S44Ni0g'};
 document.querySelectorAll("a[data-buy]").forEach(function (a) {
   var link = LINKS[a.getAttribute("data-buy")] || "";
-  if (/^https:\/\/buy\.stripe\.com\/(?!test_)/.test(link)) { a.href = link; }
+  if (/^https:\/\/buy\.stripe\.com\/(?!test_)/.test(link)) {
+    a.href = link;
+    var label = a.textContent;
+    a.addEventListener("click", function () { a.classList.add("loading"); a.textContent = "Opening secure checkout…"; });
+    window.addEventListener("pageshow", function () { a.classList.remove("loading"); a.textContent = label; });
+  }
   else { a.textContent = "Coming soon"; a.classList.add("soon"); a.removeAttribute("href"); }
 });
 </script>
